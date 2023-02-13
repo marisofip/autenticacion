@@ -17,3 +17,12 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.add(self)
